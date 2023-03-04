@@ -7,10 +7,14 @@ import { MainviewComponent } from './view/mainview/mainview.component';
 
 //The Routing IS Defined In This Module
 const routes: Routes = [
-  {path:'', redirectTo:'Home', pathMatch:'full'},
-  {path:'Home', component:MainviewComponent},
+  
+  {path:'', component:MainviewComponent,pathMatch:'full'},
 
-  {path:'News', component:NewsviewComponent}];
+//{path:'', redirectTo:'Home', pathMatch:'full'},
+ // {path:'Home', component:MainviewComponent},
+
+  //{path:'News', component:NewsviewComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
