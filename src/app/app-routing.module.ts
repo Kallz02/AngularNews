@@ -13,7 +13,7 @@ const routes: Routes = [
 //{path:'', redirectTo:'Home', pathMatch:'full'},
  // {path:'Home', component:MainviewComponent},
 
-  //{path:'News', component:NewsviewComponent}
+  //{path:'News', component:NewsviewComponent} fd
 ];
 
 @NgModule({
