@@ -1,0 +1,29 @@
+<!-- <p>newsview works!</p> -->
+<mat-toolbar color="secondary" >
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon (click)="this.sideNav.open()"  *ngIf="!sideNav?.opened">menu</mat-icon>
+      <mat-icon (click)="this.sideNav.close()" *ngIf="sideNav?.opened">close</mat-icon>
+  </button>
+    <span>Angular News</span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav">
+        <img class="avatar mat-elavation-z8" src="https://cdn4.vectorstock.com/i/thumb-large/50/08/news-alerts-breaking-logo-tv-design-element-vector-24575008.jpg" alt="">
+        <h2 class="name">News Sources</h2>
+        <mat-divider></mat-divider>
+
+        <ng-container *ngFor="let source of sources">
+            <button (click)="searchSource(source)" mat-button class="menu-button">
+            <mat-icon>event_note</mat-icon>
+            <span>{{source.name}}</span>
+        </button>
+        </ng-container>
+
+
+    <!--     <mat-divider></mat-divider> -->
+    <!--     <button mat-button class="menu-button"> -->
+    <!--     <mat-icon>settings</mat-icon> -->
+    <!--     <span>Settings</span> -->
+    <!-- </button> -->
+    </mat-sidenav>

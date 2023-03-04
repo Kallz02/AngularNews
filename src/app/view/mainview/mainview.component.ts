@@ -1,22 +1,22 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { AfterViewInit, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { NewsService } from './service/news.service';
 
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { AfterViewInit, ChangeDetectorRef, Component, ViewChild ,OnInit} from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { NewsService } from '../../service/news.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-mainview',
+  templateUrl: './mainview.component.html',
+  styleUrls: ['./mainview.component.scss']
 })
-export class AppComponent implements AfterViewInit  {
-  title = 'NewsProject';
-  sources: any = [];
+export class MainviewComponent implements OnInit,AfterViewInit{
+      title = 'NewsProject';
+  sources: any = []; //Sources And Apis
   articles:any = [];
   selectedNewsChannel: string="Top 10 Trending News!";
   @ViewChild(MatSidenav) sideNav!: MatSidenav;
 
-  ngOnInit(): void {
+  ngOnInit(): void { // fetches The Sources From The API
     this.newsApi.initArticles().subscribe((res:any)=>{
       console.log(res);
       this.articles = res.articles;
@@ -32,7 +32,7 @@ export class AppComponent implements AfterViewInit  {
   }
   ngAfterViewInit(): void {
     this.sideNav.opened = true;
-    this.observer.observe(['(max-width:800px)'])
+    this.observer.observe(['(max-width:800px)'])//obeserves to check for Sidebar
     .subscribe((res)=>{
       if(res?.matches){
         this.sideNav.mode="over";
@@ -51,4 +51,7 @@ export class AppComponent implements AfterViewInit  {
       this.articles = res.articles;
     })
   }
+
+
+
 }

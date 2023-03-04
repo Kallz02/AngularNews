@@ -1,15 +1,14 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { AfterViewInit, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ViewChild ,OnInit} from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { NewsService } from './service/news.service';
-
+import { NewsService } from '../../service/news.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-newsview',
+  templateUrl: './newsview.component.html',
+  styleUrls: ['./newsview.component.scss']
 })
-export class AppComponent implements AfterViewInit  {
+export class NewsviewComponent implements OnInit {
   title = 'NewsProject';
   sources: any = [];
   articles:any = [];
@@ -50,5 +49,7 @@ export class AppComponent implements AfterViewInit  {
       this.selectedNewsChannel = source.name
       this.articles = res.articles;
     })
-  }
-}
+
+  
+
+}}
